@@ -12,7 +12,7 @@ import {APIParameters} from './convertCsvToXlsx.types';
 export function convertCsvToXlsx(
   source: string,
   destination: string,
-  {sheetName = '', overwrite = false}: APIParameters = {},
+  {sheetName = '', overwrite = false, delimiter = ','}: APIParameters = {},
 ) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
@@ -37,7 +37,7 @@ export function convertCsvToXlsx(
   // csv parser options
   const csvOptions = {
     columns: true,
-    delimiter: ',',
+    delimiter,
     ltrim: true,
     rtrim: true,
   };
